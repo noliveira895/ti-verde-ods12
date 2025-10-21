@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-light: #f6f9fc;
+  --bg-dark: #eee;
+  --primary-green: #0b6b3a; /* Verde forte - Alusão à sustentabilidade */
+  --primary-ods12: #cc9c31; /* Cor Marrom/Ouro do ODS 12 */
+  --accent-blue: #007bff; /* Azul para destaque técnico */
+  --text-dark: #222;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+  transition: border-bottom 0.3s;
+}
+
+nav a:hover, nav a.active {
+  border-bottom: 2px solid white;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.hero {
+  background-color: white;
+  padding: 3rem 0;
+  border-bottom: 4px solid var(--primary-ods12);
+}
+
+.hero h2 {
+  color: var(--primary-green);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-section, .intro-ti-verde, .resultados, .evidencias {
+  background-color: var(--bg-dark);
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h3 {
+  color: var(--primary-green);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--primary-ods12);
+  padding-left: 1rem;
+}
+
+.perguntas ol {
+  margin-left: 2rem;
+  line-height: 2.2;
+}
+
+.grupos {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.grupo {
+  flex: 1;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+.grupo h4 {
+  color: var(--accent-blue);
+  margin-bottom: 0.8rem;
+}
+
+.chart-container {
+  max-height: 400px;
+}
+
+/* Estilos para Evidências/Depoimentos */
+.participante {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.participante img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-ods12);
+}
+
+.galeria {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+}
+
+.galeria img {
+  width: 45%;
+  max-width: 350px;
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.caption {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0 5%;
+}
+
+footer {
+  background-color: var(--primary-green);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+}
