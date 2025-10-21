@@ -25,7 +25,7 @@
   <section class="hero small">
     <div class="container">
       <h2>Apêndice de Entrevistas</h2>
-      <p>Esta seção apresenta o questionário aplicado, as respostas e alguns registros fotográficos da pesquisa.</p>
+      <p>Esta seção apresenta o questionário aplicado, as respostas e alguns registros fotográficos da pesquisa.</p> 
     </div>
   </section>
 
@@ -47,10 +47,23 @@
     </ol>
   </section>
 
-  <section class="container">
-    <h3>Grupos de Entrevistados</h3>
-    <canvas id="graficoEntrevistas"></canvas>
-  </section>
+  <section class="container dashboard-detail">
+    <h2>Dashboard Detalhado por Grupo</h2>
+    
+    <div class="dash-grid-full">
+        <div class="chart-card card">
+            <h3>Média de Conscientização por Grupo (Nota 0 a 5)</h3>
+            <canvas id="barsByGroup"></canvas>
+            <p class="chart-caption">Comparação do nível médio de consciência sobre descarte/TI-Verde entre os grupos.</p>
+        </div>
+        
+        <div class="chart-card card">
+            <h3>Políticas de TI Verde/Treinamentos por Grupo (Sim vs. Não)</h3>
+            <canvas id="stackedPolicies"></canvas>
+            <p class="chart-caption">Distribuição das respostas "Sim" e "Não" para a pergunta sobre políticas/treinamentos nas empresas/instituições.</p>
+        </div>
+    </div>
+</section>
 
   <section class="container">
     <h3>Registros da Pesquisa</h3>
@@ -81,4 +94,3 @@
   <script src="../js/main.js"></script>
 </body>
 </html>
-
