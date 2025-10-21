@@ -39,30 +39,34 @@
     </section>
 
     <section class="dashboard card">
-      <h3>Resumo da pesquisa (25 entrevistados)</h3>
-      <div class="dash-grid">
-        <div class="chart-card">
-          <canvas id="pieGroups"></canvas>
-          <p class="chart-caption">Distribuição por origem (empresa / estudante / trabalhador / amigos)</p>
-        </div>
-        <div class="chart-card">
-          <canvas id="barAwareness"></canvas>
-          <p class="chart-caption">Nível médio de consciência sobre descarte correto (0-5)</p>
-        </div>
-      </div>
+  <h3>Resumo da pesquisa (25 entrevistados)</h3>
+  <div class="dash-grid">
+    <div class="chart-card">
+      <canvas id="pieGroups"></canvas>
+      <p class="chart-caption">Distribuição por origem (empresa / estudante / trabalhador / amigos)</p>
+    </div>
+    <div class="chart-card">
+      <canvas id="barAwareness"></canvas>
+      <p class="chart-caption">Nível de consciência sobre descarte correto (contagem de notas 0-5)</p>
+    </div>
+  </div>
       <div class="small-note">
         <strong>Observação:</strong> dados agrupados e amostras públicas na página de entrevistas.
       </div>
     </section>
 
     <section class="highlights card">
-      <h3>Principais achados</h3>
-      <ul>
-        <li>Média de consciência sobre descarte: <strong id="meanAwareness">—</strong></li>
-        <li>Percentual com acesso a coleta seletiva na empresa: <strong id="percSelective">—</strong></li>
-        <li>Ações mais citadas: treinamentos, lixeiras sinalizadas, políticas de descarte</li>
-      </ul>
-    </section>
+  <h3>Principais Achados (Estatísticas Textuais)</h3>
+  <ul>
+    <li>Média de consciência sobre descarte: <strong id="meanAwareness">—</strong></li>
+    <li>Percentual com acesso a coleta seletiva na empresa: <strong id="percSelective">—</strong></li>
+    <li>Ações mais citadas: treinamentos, lixeiras sinalizadas, políticas de descarte</li>
+  </ul>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
 
   </main>
 
@@ -76,4 +80,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
