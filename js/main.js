@@ -1,6 +1,6 @@
 // js/main.js
 
-// Variável global 'agg' e 'surveyData' são carregadas via js/data.js
+// Variáveis globais 'agg' e 'surveyData' são carregadas via js/data.js
 
 // UTIL: get element safely
 const $ = sel => document.querySelector(sel);
@@ -9,9 +9,13 @@ const $ = sel => document.querySelector(sel);
  * 1. Inicializa os gráficos para a página principal (index.html)
  */
 function initHomeCharts() {
-  if (!window.agg || !window.surveyData) return;
+  // Verifica se as variáveis de dados foram carregadas com sucesso
+  if (typeof agg === 'undefined' || typeof surveyData === 'undefined') {
+    console.error("Dados da pesquisa (data.js) não carregados ou indefinidos.");
+    return;
+  }
 
-  // --- Gráfico 1: Pie de Grupos ---
+  // --- Gráfico 1: Pie de Grupos (index.html) ---
   const ctxPie = document.getElementById('pieGroups');
   if (ctxPie) {
     const groups = agg.groups;
@@ -24,7 +28,7 @@ function initHomeCharts() {
         datasets: [{
           data,
           label: 'Grupos',
-          backgroundColor: ['#0b6b3a', '#234e3a', '#4a9c6b', '#7fb998'],
+          backgroundColor: ['#00796B', '#30B4A0', '#546E7A', '#90A4AE'], // Usando a nova paleta
           borderColor: '#ffffff',
         }]
       },
@@ -39,15 +43,16 @@ function initHomeCharts() {
     });
   }
 
-  // --- Gráfico 2: Bar de Conscientização (Contagem de Notas 0-5) ---
+  // --- Gráfico 2: Bar de Conscientização (Contagem de Notas 0-5) (index.html) ---
   const ctxBar = document.getElementById('barAwareness');
   if (ctxBar) {
     // Constrói contagens de notas 0 a 5 (índice da pergunta 9 = 8)
     const counts = [0, 0, 0, 0, 0, 0];
     surveyData.forEach(s => {
-      const val = Number(s.answers[8]) || 0; // Pergunta sobre conhecimento ODS/descarte
+      const val = Number(s.answers[8]) || 0;
       counts[Math.max(0, Math.min(5, val))] += 1;
     });
+
     new Chart(ctxBar.getContext('2d'), {
       type: 'bar',
       data: {
@@ -55,7 +60,7 @@ function initHomeCharts() {
         datasets: [{
           label: 'Número de respostas',
           data: counts,
-          backgroundColor: '#0b6b3a',
+          backgroundColor: '#30B4A0',
           borderRadius: 6
         }]
       },
@@ -68,34 +73,34 @@ function initHomeCharts() {
         },
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1
+            }
           }
         }
       }
     });
   }
 
-  // --- Preenche Estatísticas Textuais (Highlights) ---
-  const meanElem = document.getElementById('meanAwareness');
-  if (meanElem) meanElem.textContent = agg.meanAwareness.toFixed(2);
-
-  const percSelectiveElem = document.getElementById('percSelective');
-  if (percSelectiveElem) percSelectiveElem.textContent = `${agg.percSelective}%`;
+  // --- Preenche Estatísticas Textuais (index.html) ---
+  updateTextualStats();
 }
 
-
 /**
- * 2. Inicializa os gráficos para a página de entrevistas (entrevistas.html)
+ * 2. Inicializa os gráficos para a página de detalhes (entrevistas.html)
  */
-function initInterviewCharts() {
-  if (!window.agg || !window.surveyData) return;
+function initDetailCharts() {
+  // Verifica se as variáveis de dados foram carregadas com sucesso
+  if (typeof agg === 'undefined' || typeof surveyData === 'undefined') {
+    console.error("Dados da pesquisa (data.js) não carregados ou indefinidos.");
+    return;
+  }
+  
+  const labels = Object.keys(agg.avgAwarenessByGroup);
+  const avgs = Object.values(agg.avgAwarenessByGroup);
 
-  const groups = agg.groups;
-  const labels = Object.keys(groups);
-
-  // --- Gráfico 3: Barras Simples (Média de Conscientização por Grupo) ---
-  // Averages per group (agg.avgAwarenessByGroup)
-  const avgs = labels.map(l => agg.avgAwarenessByGroup[l]);
+  // --- Gráfico 3: Média de Conscientização por Grupo (entrevistas.html) ---
   const ctx = document.getElementById('barsByGroup');
   if (ctx) {
     new Chart(ctx.getContext('2d'), {
@@ -105,8 +110,7 @@ function initInterviewCharts() {
         datasets: [{
           label: 'Nota média (0-5)',
           data: avgs,
-          backgroundColor: '#0b6b3a',
-          borderRadius: 4
+          backgroundColor: '#00796B'
         }]
       },
       options: {
@@ -126,7 +130,7 @@ function initInterviewCharts() {
     });
   }
 
-  // --- Gráfico 4: Barras Empilhadas (Políticas/Treinamentos "Sim" vs. "Não" por Grupo) ---
+  // --- Gráfico 4: Políticas/Treinamentos "Sim" por Grupo (entrevistas.html) ---
   const groupsYes = {};
   const groupsTotal = {};
   // Pergunta sobre políticas/treinamentos (índice 3 da lista de respostas)
@@ -151,7 +155,7 @@ function initInterviewCharts() {
         datasets: [{
             label: 'Tem Política/Treinamento (Sim)',
             data: yes,
-            backgroundColor: '#0b6b3a'
+            backgroundColor: '#00796B'
           },
           {
             label: 'Não/Não sei',
@@ -181,13 +185,33 @@ function initInterviewCharts() {
   }
 }
 
+/**
+ * 3. Preenche as estatísticas textuais na página principal
+ */
+function updateTextualStats() {
+  if (typeof agg === 'undefined' || typeof surveyData === 'undefined') return;
 
-/* Inicializa os gráficos corretos dependendo dos elementos presentes na página */
+  const meanElem = document.getElementById('meanAwareness');
+  if (meanElem) {
+    meanElem.textContent = agg.meanAwareness.toFixed(2);
+  }
+
+  const percElem = document.getElementById('percSelective');
+  if (percElem) {
+    percElem.textContent = agg.percSelective.toFixed(0) + '%';
+  }
+}
+
+
+/* 4. INICIALIZAÇÃO: Chama as funções corretas ao carregar a página */
 document.addEventListener('DOMContentLoaded', () => {
-  if ($('#pieGroups')) {
+  // Tenta inicializar os gráficos da Home (index.html)
+  if (document.getElementById('pieGroups') && document.getElementById('barAwareness')) {
     initHomeCharts();
   }
-  if ($('#barsByGroup')) {
-    initInterviewCharts();
+  
+  // Tenta inicializar os gráficos de Detalhes (entrevistas.html)
+  if (document.getElementById('barsByGroup') && document.getElementById('stackedPolicies')) {
+    initDetailCharts();
   }
 });
