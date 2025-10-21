@@ -7,7 +7,6 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -17,8 +16,10 @@
         <p class="tag">ODS 12 — Consumo e Produção Responsáveis</p>
       </div>
       <nav class="main-nav">
-        <a href="index.html">Início</a>
+        <a href="index.html" class="active">Início</a>
         <a href="pages/entrevistas.html">Entrevistas / Dados</a>
+        <a href="pages/ods12.html">ODS 12</a>
+        <a href="pages/sobre.html">Sobre o Projeto</a>
       </nav>
     </div>
   </header>
@@ -30,43 +31,56 @@
         <p>
           Este projeto analisa práticas de eficiência energética, descarte de e-lixo e ações
           alinhadas ao ODS 12. Mostramos aqui dados reais coletados em 25 entrevistas com
-          trabalhadores, estudantes e funcionários de empresas.
+          trabalhadores, estudantes e funcionários de empresas para mapear o nível de
+          consciência e adoção de práticas de TI Verde no contexto regional.
         </p>
+        <div class="hero-actions">
+          <a href="pages/entrevistas.html" class="btn">Ver Pesquisa e Resultados</a>
+        </div>
       </div>
-      <div class="hero-actions">
-        <a href="pages/entrevistas.html" class="btn">Ver entrevistas & dados</a>
+    </section>
+    
+    <section class="ods12-section">
+      <div class="ods12-content">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/E_SDG_colour_icon_12.png" alt="Ícone ODS 12" />
+        <div class="ods12-text">
+          <h3>ODS 12: Consumo e Produção Responsáveis — Fundamentos</h3>
+          <p>
+            A Organização das Nações Unidas (ONU), através da Agenda 2030, estabelece o ODS 12 com a finalidade central de **"Assegurar padrões de produção e de consumo sustentáveis"**. Este objetivo reconhece que a maneira como utilizamos os recursos naturais e geramos resíduos é insustentável a longo prazo, sendo crucial para a saúde do planeta e o bem-estar social.
+          </p>
+          <p>
+            As competências do ODS 12 permeiam a gestão eficiente de recursos naturais, a redução drástica do desperdício de alimentos (Meta 12.3) e a gestão ambientalmente correta de produtos químicos e resíduos (Meta 12.4). Seu impacto no dia a dia é direto: exige que indivíduos e empresas adotem o **consumo consciente**, reciclem ativamente e prolonguem o ciclo de vida dos produtos, promovendo um estilo de vida que harmoniza com a capacidade de regeneração da natureza.
+          </p>
+          <small>Fonte: Baseado em documentos oficiais da ONU e Ipea sobre a Agenda 2030.</small>
+        </div>
       </div>
     </section>
 
     <section class="dashboard card">
-  <h3>Resumo da pesquisa (25 entrevistados)</h3>
-  <div class="dash-grid">
-    <div class="chart-card">
-      <canvas id="pieGroups"></canvas>
-      <p class="chart-caption">Distribuição por origem (empresa / estudante / trabalhador / amigos)</p>
-    </div>
-    <div class="chart-card">
-      <canvas id="barAwareness"></canvas>
-      <p class="chart-caption">Nível de consciência sobre descarte correto (contagem de notas 0-5)</p>
-    </div>
-  </div>
+      <h3>Resumo da Pesquisa (25 Entrevistados)</h3>
+      <div class="dash-grid">
+        <div class="chart-card">
+          <canvas id="pieGroups"></canvas>
+          <p class="chart-caption">Distribuição por origem (empresa / estudante / trabalhador / amigos)</p>
+        </div>
+        <div class="chart-card">
+          <canvas id="barAwareness"></canvas>
+          <p class="chart-caption">Nível de consciência sobre descarte correto (contagem de notas 0-5)</p>
+        </div>
+      </div>
       <div class="small-note">
         <strong>Observação:</strong> dados agrupados e amostras públicas na página de entrevistas.
       </div>
     </section>
-    
-    <section class="highlights card">
-  <h3>Principais Achados (Estatísticas Textuais)</h3>
-  <ul>
-    <li>Média de consciência sobre descarte: <strong id="meanAwareness">—</strong></li>
-    <li>Percentual com acesso a coleta seletiva na empresa: <strong id="percSelective">—</strong></li>
-    <li>Ações mais citadas: treinamentos, lixeiras sinalizadas, políticas de descarte</li>
-  </ul>
-</section>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
+    <section class="highlights card">
+      <h3>Principais Achados (Estatísticas Textuais)</h3>
+      <ul>
+        <li>Média de consciência sobre descarte: <strong id="meanAwareness">—</strong></li>
+        <li>Percentual com acesso a coleta seletiva na empresa: <strong id="percSelective">—</strong></li>
+        <li>Ações mais citadas: treinamentos, lixeiras sinalizadas, políticas de descarte</li>
+      </ul>
+    </section>
 
   </main>
 
@@ -76,6 +90,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
