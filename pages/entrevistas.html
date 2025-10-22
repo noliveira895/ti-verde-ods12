@@ -1,103 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrevistas e Dados | TI-Verde e ODS 12</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrevistas e Dados | TI-Verde e ODS 12</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <h1>Entrevistas e Dados</h1>
-        <p class="tag">Resultados da Pesquisa Quantitativa</p>
-      </div>
-      <nav class="main-nav">
-        <a href="../index.html">Início</a>
-        <a href="entrevistas.html" class="active">Entrevistas / Dados</a>
-        <a href="ods12.html">ODS 12</a>
-        <a href="sobre.html">Sobre o Projeto</a>
-      </nav>
-    </div>
-  </header>
-  <section class="hero small">
-    <div class="container">
-      <h2>Apêndice de Entrevistas</h2>
-      <p>Esta seção apresenta o questionário aplicado, as respostas e alguns registros fotográficos da pesquisa.</p> 
-    </div>
+ <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Entrevistas e Dados</h1>
+        <p class="tag">Resultados da Pesquisa Quantitativa</p>
+      </div>
+      <nav class="main-nav">
+        <a href="../index.html">Início</a>
+        <a href="entrevistas.html" class="active">Entrevistas / Dados</a>
+        <a href="empresas.html">Empresas</a>         <a href="ods12.html">ODS 12</a>
+        <a href="sobre.html">Sobre o Projeto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <section class="hero small">
+    <div class="container">
+      <h2>Apêndice de Entrevistas</h2>
+      <p>Esta seção apresenta o questionário aplicado, as respostas e alguns registros fotográficos da pesquisa.</p> 
+    </div>
+  </section>
+
+  <section class="container">
+    <h3>Questionário Baseado na ODS 12</h3>
+    <ol>
+      <li>Você conhece a ODS 12?</li>
+      <li>Você pratica o descarte seletivo de lixo eletrônico?</li>
+      <li>Utiliza equipamentos com eficiência energética?</li>
+      <li>Na sua empresa, há ações de reciclagem?</li>
+      <li>Você sabe onde descartar aparelhos eletrônicos antigos?</li>
+      <li>Concorda que a TI pode reduzir impactos ambientais?</li>
+      <li>Já participou de alguma campanha sobre consumo consciente?</li>
+      <li>Você utiliza armazenamento em nuvem para evitar uso de HDs físicos?</li>
+      <li>Considera importante prolongar o ciclo de vida de equipamentos?</li>
+      <li>Você conhece o termo “TI Verde”?</li>
+      <li>As empresas devem ter metas de sustentabilidade digital?</li>
+      <li>Você acredita que pequenas ações cotidianas fazem diferença?</li>
+    </ol>
+  </section>
+
+  <section class="container dashboard">
+    <h2>Dashboards Detalhados da Pesquisa</h2>
+    
+    <div class="dash-grid">
+        <div class="chart-card card">
+            <h3>Média de Conscientização por Grupo</h3>
+            <canvas id="barsByGroup"></canvas>
+            <p class="chart-caption">Nota média (0 a 5) de consciência sobre descarte/TI-Verde entre os grupos.</p>
+        </div>
+        
+        <div class="chart-card card">
+            <h3>Políticas de TI Verde/Treinamentos por Grupo (Sim vs. Não)</h3>
+            <canvas id="stackedPolicies"></canvas>
+            <p class="chart-caption">Distribuição das respostas "Sim" e "Não" para a pergunta sobre políticas/treinamentos nas empresas/instituições.</p>
+        </div>
+    </div>
   </section>
 
   <section class="container">
-    <h3>Questionário Baseado na ODS 12</h3>
-    <ol>
-      <li>Você conhece a ODS 12?</li>
-      <li>Você pratica o descarte seletivo de lixo eletrônico?</li>
-      <li>Utiliza equipamentos com eficiência energética?</li>
-      <li>Na sua empresa, há ações de reciclagem?</li>
-      <li>Você sabe onde descartar aparelhos eletrônicos antigos?</li>
-      <li>Concorda que a TI pode reduzir impactos ambientais?</li>
-      <li>Já participou de alguma campanha sobre consumo consciente?</li>
-      <li>Você utiliza armazenamento em nuvem para evitar uso de HDs físicos?</li>
-      <li>Considera importante prolongar o ciclo de vida de equipamentos?</li>
-      <li>Você conhece o termo “TI Verde”?</li>
-      <li>As empresas devem ter metas de sustentabilidade digital?</li>
-      <li>Você acredita que pequenas ações cotidianas fazem diferença?</li>
-    </ol>
-  </section>
+    <h3>Registros da Pesquisa</h3>
+    <div class="galeria">
+      <figure>
+        <img src="../imagens/participante1.jpg" alt="Participante 1 - Transônibus">
+        <figcaption><strong>João Pereira</strong> — Técnico da Transônibus. Destacou a importância da reciclagem e do uso de energia solar.</figcaption>
+      </figure>
 
-  <<section class="container dashboard">
-    <h2>Dashboards Detalhados da Pesquisa</h2>
-    
-    <div class="dash-grid">
-        <div class="chart-card card">
-            <h3>Média de Conscientização por Grupo</h3>
-            <canvas id="barsByGroup"></canvas>
-            <p class="chart-caption">Nota média (0 a 5) de consciência sobre descarte/TI-Verde entre os grupos.</p>
-        </div>
-        
-        <div class="chart-card card">
-            <h3>Políticas de TI Verde/Treinamentos por Grupo (Sim vs. Não)</h3>
-            <canvas id="stackedPolicies"></canvas>
-            <p class="chart-caption">Distribuição das respostas "Sim" e "Não" para a pergunta sobre políticas/treinamentos nas empresas/instituições.</p>
-        </div>
-    </div>
-</section>
+      <figure>
+        <img src="../imagens/participante2.jpg" alt="Participante 2 - Transônibus">
+        <figcaption><strong>Marina Alves</strong> — Analista da Transônibus. Relatou iniciativas internas de coleta seletiva.</figcaption>
+      </figure>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/data.js"></script> 
-<script src="../js/main.js"></script>
-</body>
-</html>
+      <figure>
+        <img src="../imagens/lixeiras1.jpg" alt="Lixeiras seletivas">
+        <figcaption>Sistema de coleta seletiva implantado na Transônibus — alinhado à meta 12.5 da ODS 12.</figcaption>
+      </figure>
+    </div>
+  </section>
+  </main>   <footer>
+    <div class="container">
+      <p>© 2025 - Projeto Extensionista UNIG | Alinhado à ODS 12 da ONU</p>
+    </div>
+  </footer>
 
-  <section class="container">
-    <h3>Registros da Pesquisa</h3>
-    <div class="galeria">
-      <figure>
-        <img src="../imagens/participante1.jpg" alt="Participante 1 - Transônibus">
-        <figcaption><strong>João Pereira</strong> — Técnico da Transônibus. Destacou a importância da reciclagem e do uso de energia solar.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="../imagens/participante2.jpg" alt="Participante 2 - Transônibus">
-        <figcaption><strong>Marina Alves</strong> — Analista da Transônibus. Relatou iniciativas internas de coleta seletiva.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="../imagens/lixeiras1.jpg" alt="Lixeiras seletivas">
-        <figcaption>Sistema de coleta seletiva implantado na Transônibus — alinhado à meta 12.5 da ODS 12.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 - Projeto Extensionista UNIG | Alinhado à ODS 12 da ONU</p>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/data.js"></script> 
+  <script src="../js/main.js"></script>
 </body>
 </html>
