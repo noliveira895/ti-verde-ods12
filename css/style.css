@@ -104,11 +104,18 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
 .dashboard{ padding: 1.5rem; }
 .dash-grid{
   display: grid;
+  /* NOVO: Garante que os cards na mesma linha tenham a mesma altura */
+  grid-auto-rows: 1fr; 
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
 .chart-card{
+  /* NOVOS: Força o alinhamento de altura e organiza o conteúdo */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
   padding: 1rem;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -119,9 +126,15 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   color: var(--muted);
   text-align: center;
   margin-top: 1rem;
+  /* NOVO: Impede que o texto da legenda seja comprimido e empurra o espaço para o gráfico */
+  flex-shrink: 0; 
 }
 #barsByGroup, #stackedPolicies { max-height: 400px; } /* Ajuste visual */
-
+/* NOVO BLOCO: Controla o elemento de gráfico */
+.chart-card canvas {
+  max-height: 300px; /* Limita a altura do gráfico para ser consistente */
+  margin: 0 auto; /* Centraliza o gráfico dentro do card */
+}
 /* Highlights/Estatísticas */
 .highlights ul{ list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
 .highlights li{ font-size: 1.1rem; color: var(--muted); }
