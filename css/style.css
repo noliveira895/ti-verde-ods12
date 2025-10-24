@@ -216,14 +216,14 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   display: flex;         
   gap: 1.5rem;           
   flex-wrap: wrap;       
-  justify-content: center; 
+  justify-content: center; /* NOVO: Centraliza as figuras na linha */
   margin-top: 1.5rem;
 }
 
 .galeria figure {
-  /* Largura base para 3 colunas em telas grandes */
-  flex-basis: 300px; 
-  max-width: 100%;
+  /* Regra para as fotos dos participantes (João e Marina) */
+  flex-basis: 45%; /* Define a largura para que caibam apenas 2 por linha com espaçamento */
+  max-width: 350px; /* Limita o tamanho máximo de cada foto */
   border-radius: var(--radius);
   overflow: hidden; 
   background: var(--card); 
@@ -231,10 +231,10 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
 }
 
 .galeria img {
-  /* REGRAS CRUCIAIS PARA PROPORÇÃO UNIFORME */
+  /* REGRAS CRUCIAIS PARA PROPORÇÃO UNIFORME DOS PARTICIPANTES */
   width: 100%;
-  height: 220px;            /* Altura FIXA: Força todas as imagens a terem 220px de altura */
-  object-fit: cover;        /* Mágica: Preenche o espaço, cortando as bordas, sem distorcer a imagem */
+  height: 250px;            /* Ajustei um pouco para ter proporção visual melhor */
+  object-fit: cover;        
   display: block;
 }
 
@@ -251,32 +251,39 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   color: var(--accent);
 }
 
-/* Regras para o 'quadro' retangular da lixeira (se você o inseriu no HTML) */
+/* Regras para o 'quadro' retangular de destaque (LIXEIRAS) */
 .lixeira-destaque {
-  flex-basis: 100% !important; /* Ocupa a largura total da galeria */
+  /* Essencial: forçar a quebra de linha e ocupar 100% da largura */
+  flex-basis: 100% !important; 
   max-width: 100%;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem; /* Adiciona espaço entre os participantes e as lixeiras */
 }
 
 .lixeira-destaque img {
-  height: 150px; /* Altura menor para o formato retangular */
+  /* Altura menor para o formato retangular de colagem */
+  height: 180px; 
   object-fit: cover;
+  width: 90%; /* Deixa uma margem lateral, dando o efeito de "quadro" no centro */
+  display: block;
   margin: 10px auto 0 auto;
-  max-width: 90%; 
 }
 
 .lixeira-destaque figcaption {
   text-align: center;
 }
 
-/* Responsividade para Galeria */
+/* Responsividade: Garante que em telas pequenas todas ocupem 100% */
 @media (max-width: 768px) {
     .galeria figure {
         flex-basis: 100%; 
+        max-width: 100%;
     }
     .lixeira-destaque img {
         max-width: 100%;
         margin-left: 0;
+        margin-right: 0;
+    }
+}
         margin-right: 0;
     }
 }
