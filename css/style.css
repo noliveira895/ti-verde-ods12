@@ -210,12 +210,31 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   background: var(--card); 
   box-shadow: var(--shadow);
 }
+/* --- BLOCO PARA GALERIA (Fotos de Entrevistas) --- */
+
+.galeria {
+  display: flex;         
+  gap: 1.5rem;           
+  flex-wrap: wrap;       
+  justify-content: center; 
+  margin-top: 1.5rem;
+}
+
+.galeria figure {
+  /* Largura base para 3 colunas em telas grandes */
+  flex-basis: 300px; 
+  max-width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden; 
+  background: var(--card); 
+  box-shadow: var(--shadow);
+}
 
 .galeria img {
-  /* REGRAS CRUCIAIS PARA UNIFORMIDADE */
+  /* REGRAS CRUCIAIS PARA PROPORÇÃO UNIFORME */
   width: 100%;
-  height: 220px;            /* Altura FIXA para todas as imagens. Ajuste este valor (ex: 250px) se quiser fotos mais altas. */
-  object-fit: cover;        /* Preenche a área de 220px, cortando o excesso da imagem sem distorcer */
+  height: 220px;            /* Altura FIXA: Força todas as imagens a terem 220px de altura */
+  object-fit: cover;        /* Mágica: Preenche o espaço, cortando as bordas, sem distorcer a imagem */
   display: block;
 }
 
@@ -223,7 +242,7 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   padding: 1rem;
   font-size: 0.95rem;
   color: var(--text);
-  background: var(--card);
+  background: var(--card); 
 }
 
 .galeria figcaption strong {
@@ -232,9 +251,32 @@ h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
   color: var(--accent);
 }
 
+/* Regras para o 'quadro' retangular da lixeira (se você o inseriu no HTML) */
+.lixeira-destaque {
+  flex-basis: 100% !important; /* Ocupa a largura total da galeria */
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.lixeira-destaque img {
+  height: 150px; /* Altura menor para o formato retangular */
+  object-fit: cover;
+  margin: 10px auto 0 auto;
+  max-width: 90%; 
+}
+
+.lixeira-destaque figcaption {
+  text-align: center;
+}
+
 /* Responsividade para Galeria */
 @media (max-width: 768px) {
     .galeria figure {
-        flex-basis: 100%; /* Em telas menores, a figura ocupa 100% da largura */
+        flex-basis: 100%; 
+    }
+    .lixeira-destaque img {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
